@@ -25,6 +25,9 @@ function XD_XD () {
     last_XD = 182
     first_XD = 10
 }
+let y_v = 0
+let r_v = 0
+let g_v = 0
 let first_XD = 0
 let last_XD = 0
 let lane_1_YD = 0
@@ -45,5 +48,23 @@ game.onUpdate(function () {
     }
     if (GreenCar.x > last_XD) {
         GreenCar.x = first_XD
+    }
+})
+game.onUpdateInterval(5000, function () {
+    g_v = randint(1, 10)
+    r_v = randint(5, 15)
+    y_v = randint(10, 20)
+    GreenCar.setVelocity(g_v, 0)
+    RedCar.setVelocity(r_v, 0)
+    YellowCar.setVelocity(y_v, 0)
+    info.player1.setScore(y_v)
+    info.player2.setScore(g_v)
+    info.player3.setScore(r_v)
+    if (g_v == r_v) {
+        if (y_v == r_v) {
+            game.setGameOverEffect(true, effects.confetti)
+            game.setGameOverMessage(true, "you win")
+            game.gameOver(true)
+        }
     }
 })
