@@ -1,4 +1,7 @@
 /**
+ * I am exited for the super Mario galaxy move
+ */
+/**
  * I'm a very cool dude ok?
  */
 function setupCars () {
@@ -69,8 +72,6 @@ game.onUpdateInterval(5000, function () {
         }
     }
 })
-/**
- */
 game.onUpdateInterval(1000000, function () {
     i_hate_the_green_car = randint(1, 3)
     if (i_hate_the_green_car == 1) {
