@@ -25,6 +25,7 @@ function XD_XD () {
     last_XD = 182
     first_XD = 10
 }
+let i_hate_the_green_car = 0
 let y_v = 0
 let r_v = 0
 let g_v = 0
@@ -66,5 +67,23 @@ game.onUpdateInterval(5000, function () {
             game.setGameOverMessage(true, "you win")
             game.gameOver(true)
         }
+    }
+})
+game.onUpdateInterval(1000000, function () {
+    i_hate_the_green_car = randint(1, 3)
+    if (i_hate_the_green_car == 1) {
+        YellowCar.startEffect(effects.spray, 5000)
+        YellowCar.setVelocity(0, 0)
+        game.splash("yellow car was in a accident")
+    }
+    if (i_hate_the_green_car == 3) {
+        RedCar.startEffect(effects.spray, 5000)
+        RedCar.setVelocity(0, 0)
+        game.splash("red car was in a accident")
+    }
+    if (i_hate_the_green_car == 2) {
+        GreenCar.startEffect(effects.spray, 5000)
+        GreenCar.setVelocity(0, 0)
+        game.splash("green car was in a accident")
     }
 })
