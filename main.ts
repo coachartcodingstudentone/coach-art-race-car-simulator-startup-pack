@@ -10,16 +10,19 @@ function setupCars () {
     GreenCar.setPosition(10, lane_2_YD)
     GreenCar.setVelocity(10, 0)
     GreenCar.setStayInScreen(false)
+    GCL = 0
     RedCar = sprites.create(assets.image`Red Car`, SpriteKind.Player)
     RedCar.scale = 0.75
     RedCar.setPosition(8, laneee_3_YD)
     RedCar.setVelocity(10, 0)
     RedCar.setStayInScreen(false)
+    RCL = 0
     YellowCar = sprites.create(assets.image`Yellow Car`, SpriteKind.Player)
     YellowCar.scale = 0.7
     YellowCar.setPosition(10, lane_1_YD)
     YellowCar.setVelocity(10, 0)
     YellowCar.setStayInScreen(false)
+    YCL = 0
 }
 function XD_XD () {
     laneee_3_YD = 110
@@ -28,36 +31,54 @@ function XD_XD () {
     last_XD = 182
     first_XD = 10
 }
+function who_won () {
+    game.splash("Yellow car laps", YCL)
+    game.splash("red car laps", RCL)
+    game.splash("green car laps", GCL)
+    if (GCL >= RCL) {
+        if (GCL >= YCL) {
+            game.splash("you are so lucky green car won take a screnshot")
+            game.splash("and send it to")
+        }
+    }
+}
 let i_hate_the_green_car = 0
 let y_v = 0
 let r_v = 0
 let g_v = 0
 let first_XD = 0
 let last_XD = 0
+let YCL = 0
 let lane_1_YD = 0
 let YellowCar: Sprite = null
+let RCL = 0
 let laneee_3_YD = 0
 let RedCar: Sprite = null
+let GCL = 0
 let lane_2_YD = 0
 let GreenCar: Sprite = null
 scene.setBackgroundImage(assets.image`Background 2`)
+game.splash("if the green car wins you will get a free shavedice")
 XD_XD()
 setupCars()
 game.onUpdate(function () {
     if (YellowCar.x > last_XD) {
         YellowCar.x = first_XD
+        YCL += 1
     }
     if (RedCar.x > last_XD) {
         RedCar.x = first_XD
+        RCL += 1
     }
     if (GreenCar.x > last_XD) {
         GreenCar.x = first_XD
+        GCL += 1
     }
 })
 game.onUpdateInterval(5000, function () {
     g_v = randint(1, 10)
     r_v = randint(5, 15)
-    y_v = randint(10, 20)
+    y_v = randint(5, 20)
     GreenCar.setVelocity(g_v, 0)
     RedCar.setVelocity(r_v, 0)
     YellowCar.setVelocity(y_v, 0)
