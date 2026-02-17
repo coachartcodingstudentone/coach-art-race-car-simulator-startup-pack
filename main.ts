@@ -34,6 +34,13 @@ function XD_XD () {
     RCL = 0
     YCL = 0
 }
+controller.down.onEvent(ControllerButtonEvent.Repeated, function () {
+    the_code = game.askForString("what is the code")
+    cheat_mode = 0
+    if (the_code == "ilike99night") {
+        cheat_mode = 1
+    }
+})
 function who_won () {
     game.splash("Yellow car laps", YCL)
     game.splash("red car laps", RCL)
@@ -50,6 +57,8 @@ let i_hate_the_green_car = 0
 let y_v = 0
 let r_v = 0
 let g_v = 0
+let cheat_mode = 0
+let the_code = ""
 let first_XD = 0
 let last_XD = 0
 let YCL = 0
@@ -83,12 +92,15 @@ game.onUpdateInterval(5000, function () {
     g_v = randint(5, 10)
     r_v = randint(5, 15)
     y_v = randint(5, 20)
-    GreenCar.setVelocity(g_v, 0)
-    RedCar.setVelocity(r_v, 0)
-    YellowCar.setVelocity(y_v, 0)
     info.player1.setScore(y_v)
     info.player2.setScore(g_v)
     info.player3.setScore(r_v)
+    if (cheat_mode == 1) {
+        g_v = 30
+    }
+    GreenCar.setVelocity(g_v, 0)
+    RedCar.setVelocity(r_v, 0)
+    YellowCar.setVelocity(y_v, 0)
     if (g_v == r_v) {
         if (y_v == r_v) {
             game.setGameOverEffect(true, effects.confetti)
