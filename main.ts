@@ -24,6 +24,9 @@ function setupCars () {
     YellowCar.setStayInScreen(false)
     YCL = 0
 }
+controller.player4.onButtonEvent(ControllerButton.Down, ControllerButtonEvent.Repeated, function () {
+    if_you_use_this_code_you_are_right()
+})
 function XD_XD () {
     laneee_3_YD = 110
     lane_2_YD = 95
@@ -34,13 +37,19 @@ function XD_XD () {
     RCL = 0
     YCL = 0
 }
-controller.down.onEvent(ControllerButtonEvent.Repeated, function () {
+controller.player3.onButtonEvent(ControllerButton.Down, ControllerButtonEvent.Repeated, function () {
+    if_you_use_this_code_you_are_right()
+})
+controller.player1.onButtonEvent(ControllerButton.Down, ControllerButtonEvent.Repeated, function () {
+    if_you_use_this_code_you_are_right()
+})
+function if_you_use_this_code_you_are_right () {
     the_code = game.askForString("what is the code")
     cheat_mode = 0
     if (the_code == "ilike99night") {
         cheat_mode = 1
     }
-})
+}
 function who_won () {
     game.splash("Yellow car laps", YCL)
     game.splash("red car laps", RCL)
@@ -53,6 +62,9 @@ function who_won () {
         }
     }
 }
+controller.player2.onButtonEvent(ControllerButton.Down, ControllerButtonEvent.Repeated, function () {
+    if_you_use_this_code_you_are_right()
+})
 let i_hate_the_green_car = 0
 let y_v = 0
 let r_v = 0
