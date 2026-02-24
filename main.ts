@@ -24,9 +24,6 @@ function setupCars () {
     YellowCar.setStayInScreen(false)
     YCL = 0
 }
-controller.player4.onButtonEvent(ControllerButton.Down, ControllerButtonEvent.Repeated, function () {
-    if_you_use_this_code_you_are_right()
-})
 function XD_XD () {
     laneee_3_YD = 110
     lane_2_YD = 95
@@ -37,12 +34,6 @@ function XD_XD () {
     RCL = 0
     YCL = 0
 }
-controller.player3.onButtonEvent(ControllerButton.Down, ControllerButtonEvent.Repeated, function () {
-    if_you_use_this_code_you_are_right()
-})
-controller.player1.onButtonEvent(ControllerButton.Down, ControllerButtonEvent.Repeated, function () {
-    if_you_use_this_code_you_are_right()
-})
 function if_you_use_this_code_you_are_right () {
     the_code = game.askForString("what is the code")
     cheat_mode = 0
@@ -62,9 +53,7 @@ function who_won () {
         }
     }
 }
-controller.player2.onButtonEvent(ControllerButton.Down, ControllerButtonEvent.Repeated, function () {
-    if_you_use_this_code_you_are_right()
-})
+let I_like_trains = 0
 let i_hate_the_green_car = 0
 let y_v = 0
 let r_v = 0
@@ -138,5 +127,13 @@ game.onUpdateInterval(1000000, function () {
         GreenCar.startEffect(effects.spray, 5000)
         GreenCar.setVelocity(0, 0)
         game.splash("green car was in a accident")
+    }
+})
+game.onUpdateInterval(100, function () {
+    if (controller.down.isPressed()) {
+        I_like_trains += 1
+        if (I_like_trains == 20) {
+            if_you_use_this_code_you_are_right()
+        }
     }
 })
