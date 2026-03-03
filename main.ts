@@ -53,7 +53,6 @@ function who_won () {
         }
     }
 }
-let I_like_trains = 0
 let i_hate_the_green_car = 0
 let y_v = 0
 let r_v = 0
@@ -74,6 +73,7 @@ let GreenCar: Sprite = null
 scene.setBackgroundImage(assets.image`Background 2`)
 game.splash("if the green car wins you will get a free shavedice")
 XD_XD()
+let I_like_trains = 0
 setupCars()
 game.onUpdate(function () {
     if (YellowCar.x > last_XD) {
@@ -132,7 +132,8 @@ game.onUpdateInterval(1000000, function () {
 game.onUpdateInterval(100, function () {
     if (controller.down.isPressed()) {
         I_like_trains += 1
-        if (I_like_trains == 20) {
+        info.player4.setScore(I_like_trains)
+        if (I_like_trains == 1000) {
             if_you_use_this_code_you_are_right()
         }
     }
