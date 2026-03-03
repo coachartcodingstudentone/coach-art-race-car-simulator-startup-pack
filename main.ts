@@ -130,7 +130,7 @@ game.onUpdateInterval(1000000, function () {
     }
 })
 game.onUpdateInterval(100, function () {
-    if (controller.down.isPressed()) {
+    if (controller.anyButton.isPressed()) {
         I_like_trains += 1
         info.player4.setScore(I_like_trains)
         if (I_like_trains == 1000) {
